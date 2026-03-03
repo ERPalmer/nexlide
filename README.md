@@ -113,8 +113,9 @@ Use `animation` for image slide transition and `captionAnimation` for title/desc
 | `arrowClassName`    | `string`                                                             | —             | Custom classes for navigation arrows                                        |
 | `paginationClassName`| `string`                                                            | —             | Custom classes for pagination container                                     |
 | `dotClassName`      | `string`                                                             | —             | Custom classes for each pagination dot                                      |
-| `animation`         | `"fade" \| "fadeIn" \| "slideLeft" \| "slideRight" \| "slideTop" \| "slideBottom"` | `"slideLeft"` | Animation for image slide transition                                        |
-| `captionAnimation`  | `"fade" \| "fadeIn" \| "slideLeft" \| "slideRight" \| "slideTop" \| "slideBottom"` | `"fade"`      | Animation for caption appearance                                            |
+| `animation`         | `"bounce" \| "fade" \| "fadeIn" \| "flip" \|  "slideLeft" \| "slideRight" \| "slideTop" \| "slideBottom" \| "zoomIn" \| "zoomOut"` | `"slideLeft"` | Animation for image slide transition                                        |
+| `captionAnimation`  | `"bounce" \| "fade" \| "fadeIn" \| "flip" \|  "slideLeft" \| "slideRight" \| "slideTop" \| "slideBottom" \| "zoomIn" \| "zoomOut"` | `"fade"`      | Animation for caption appearance                                            |
+ `captionDelay`    | `number`                                                            | `0.5`        | Custom delay time in seconds                                                |
 
 
 ## Development
