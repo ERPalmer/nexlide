@@ -2,16 +2,26 @@
   "name": "nexlide",
   "description": "Nexlide is a modern, lightweight, and fully customizable React carousel component built with Framer Motion for smooth animations and Tailwind CSS for flexible styling.",
   "version": "1.0.0",
-  "author": "Nexlide",
+  "author": "Nexlide Team",
   "license": "MIT",
-  "private": "false",
+  "private": false,
   "keywords": [
     "react",
     "carousel",
     "nextjs",
     "tailwindcss",
-    "framer-motion"
+    "framer-motion",
+    "image-carousel",
+    "react-component"
   ],
+  "homepage": "https://github.com/ERPalmer/nexlide#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ERPalmer/nexlide.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ERPalmer/nexlide/issues"
+  },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -21,6 +31,9 @@
   "scripts": {
     "build": "rollup -c rollup.config.mjs",
     "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "peerDependencies": {
     "class-variance-authority": "^0.7.0",
