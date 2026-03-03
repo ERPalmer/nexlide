@@ -1,4 +1,4 @@
-# Nexlide Carousel
+# Nexlide
 
 A modern, lightweight, and fully customizable React carousel component built with **Framer Motion** for smooth animations and **Tailwind CSS** for flexible styling.
 
