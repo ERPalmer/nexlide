@@ -2,14 +2,15 @@
 
 A modern, lightweight, and fully customizable React carousel component built with **Framer Motion** for smooth animations and **Tailwind CSS** for flexible styling.
 
-Supports:
+## Supports
+
 - Autoplay with configurable interval
 - Infinite loop
 - Touch swipe gestures (mobile-friendly)
 - Navigation arrows
 - Pagination dots
 - Multiple animation variants for slides and captions
-- Fully customizable via className props
+- Fully customizable styles via className props
 - Designed for seamless integration with **Next.js** (App Router) and any React project
 
 ## Features
