@@ -19,6 +19,7 @@ interface CarouselProps {
     dotClassName?: string;
     animation?: keyof typeof slideVariants;
     captionAnimation?: keyof typeof slideVariants;
+    captionDelay?: number;
 }
-export default function Carousel({ items, autoPlay, autoPlayInterval, showPagination, showArrows, infiniteLoop, className, slideClassName, captionClassName, arrowClassName, paginationClassName, dotClassName, animation, captionAnimation, }: CarouselProps): import("react/jsx-runtime").JSX.Element | null;
+export default function Carousel({ items, autoPlay, autoPlayInterval, showPagination, showArrows, infiniteLoop, className, slideClassName, captionClassName, arrowClassName, paginationClassName, dotClassName, animation, captionAnimation, captionDelay, }: CarouselProps): import("react/jsx-runtime").JSX.Element | null;
 export {};

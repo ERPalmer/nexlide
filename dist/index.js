@@ -37,13 +37,33 @@ const slideVariants = {
         animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut" } },
         exit: { opacity: 0, y: "-100%" },
     },
+    bounce: {
+        initial: { opacity: 0, y: 40, scale: 0.9 },
+        animate: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.68, -0.55, 0.265, 1.55] } }, // bounce fuerte
+        exit: { opacity: 0, y: -40, scale: 0.9 },
+    },
+    zoomIn: {
+        initial: { opacity: 0, scale: 0.7 },
+        animate: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
+        exit: { opacity: 0, scale: 0.7 },
+    },
+    zoomOut: {
+        initial: { opacity: 0, scale: 1.3 },
+        animate: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
+        exit: { opacity: 0, scale: 1.3 },
+    },
+    flip: {
+        initial: { opacity: 0, rotateY: 90 },
+        animate: { opacity: 1, rotateY: 0, transition: { duration: 0.7, ease: "easeInOut" } },
+        exit: { opacity: 0, rotateY: -90 },
+    },
 };
 
 function cn(...inputs) {
     return tailwindMerge.twMerge(clsx.clsx(inputs));
 }
 
-function Carousel({ items, autoPlay = false, autoPlayInterval = 3000, showPagination = true, showArrows = true, infiniteLoop = true, className, slideClassName, captionClassName, arrowClassName, paginationClassName, dotClassName, animation = "slideLeft", captionAnimation = "fade", }) {
+function Carousel({ items, autoPlay = false, autoPlayInterval = 3000, showPagination = true, showArrows = true, infiniteLoop = true, className, slideClassName, captionClassName, arrowClassName, paginationClassName, dotClassName, animation = "slideLeft", captionAnimation = "fade", captionDelay = 0.5, }) {
     var _a, _b;
     const [currentIndex, setCurrentIndex] = react.useState(0);
     const touchStartX = react.useRef(0);
@@ -79,7 +99,11 @@ function Carousel({ items, autoPlay = false, autoPlayInterval = 3000, showPagina
     };
     if (items.length === 0)
         return null;
-    return (jsxRuntime.jsxs("div", { className: cn("relative overflow-hidden w-full max-w-4xl mx-auto aspect-[4/3] rounded-xl shadow-2xl bg-gray-900", className), onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, role: "region", "aria-label": "Image carousel", children: [jsxRuntime.jsx(framerMotion.AnimatePresence, { initial: false, mode: "wait", children: jsxRuntime.jsxs(framerMotion.motion.div, { className: cn("absolute inset-0", slideClassName), variants: (_a = slideVariants[animation]) !== null && _a !== void 0 ? _a : slideVariants.slideLeft, initial: "initial", animate: "animate", exit: "exit", children: [jsxRuntime.jsx("img", { src: items[currentIndex].imageUrl, alt: items[currentIndex].title || "Carousel image", className: "w-full h-full object-cover", loading: "lazy" }), jsxRuntime.jsxs(framerMotion.motion.div, { className: cn("absolute bottom-6 left-6 right-6 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl", captionClassName), variants: (_b = slideVariants[captionAnimation]) !== null && _b !== void 0 ? _b : slideVariants.fade, initial: "initial", animate: "animate", exit: "exit", transition: { delay: 0.15 }, children: [jsxRuntime.jsx("h3", { className: "text-2xl font-bold text-white drop-shadow-md", children: items[currentIndex].title }), jsxRuntime.jsx("p", { className: "mt-2 text-white/90 text-lg drop-shadow-sm", children: items[currentIndex].description })] })] }, currentIndex) }), showArrows && items.length > 1 && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("button", { onClick: prev, className: cn("absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 text-white text-3xl hover:bg-black/70 transition-all duration-200 shadow-lg", arrowClassName), "aria-label": "Previous", children: "\u2039" }), jsxRuntime.jsx("button", { onClick: next, className: cn("absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 text-white text-3xl hover:bg-black/70 transition-all duration-200 shadow-lg", arrowClassName), "aria-label": "Next", children: "\u203A" })] })), showPagination && items.length > 1 && (jsxRuntime.jsx("div", { className: cn("absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-3", paginationClassName), children: items.map((_, idx) => (jsxRuntime.jsx("button", { onClick: () => goToIndex(idx), className: cn("w-3 h-3 rounded-full transition-all duration-300 shadow-md", idx === currentIndex
+    return (jsxRuntime.jsxs("div", { className: cn("relative overflow-hidden w-full max-w-4xl mx-auto aspect-[4/3] rounded-xl shadow-2xl bg-gray-900", className), onTouchStart: handleTouchStart, onTouchMove: handleTouchMove, role: "region", "aria-label": "Image carousel", children: [jsxRuntime.jsx(framerMotion.AnimatePresence, { initial: false, mode: "wait", children: jsxRuntime.jsxs(framerMotion.motion.div, { className: cn("absolute inset-0", slideClassName), variants: (_a = slideVariants[animation]) !== null && _a !== void 0 ? _a : slideVariants.slideLeft, initial: "initial", animate: "animate", exit: "exit", children: [jsxRuntime.jsx("img", { src: items[currentIndex].imageUrl, alt: items[currentIndex].title || "Carousel image", className: "w-full h-full object-cover", loading: "lazy" }), jsxRuntime.jsx(framerMotion.AnimatePresence, { children: jsxRuntime.jsxs(framerMotion.motion.div, { className: cn("absolute bottom-6 left-6 right-6 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl", captionClassName), variants: (_b = slideVariants[captionAnimation]) !== null && _b !== void 0 ? _b : slideVariants.fade, initial: "initial", animate: "animate", exit: "exit", transition: {
+                                    delay: captionDelay,
+                                    duration: 0.7,
+                                    ease: "easeOut",
+                                }, children: [jsxRuntime.jsx("h3", { className: "text-2xl font-bold text-white drop-shadow-md", children: items[currentIndex].title }), jsxRuntime.jsx("p", { className: "mt-2 text-white/90 text-lg drop-shadow-sm", children: items[currentIndex].description })] }, currentIndex) })] }, currentIndex) }), showArrows && items.length > 1 && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("button", { onClick: prev, className: cn("absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 text-white text-3xl hover:bg-black/70 transition-all duration-200 shadow-lg", arrowClassName), "aria-label": "Previous", children: "\u2039" }), jsxRuntime.jsx("button", { onClick: next, className: cn("absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 text-white text-3xl hover:bg-black/70 transition-all duration-200 shadow-lg", arrowClassName), "aria-label": "Next", children: "\u203A" })] })), showPagination && items.length > 1 && (jsxRuntime.jsx("div", { className: cn("absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-3", paginationClassName), children: items.map((_, idx) => (jsxRuntime.jsx("button", { onClick: () => goToIndex(idx), className: cn("w-3 h-3 rounded-full transition-all duration-300 shadow-md", idx === currentIndex
                         ? "bg-white scale-125 shadow-white/50"
                         : "bg-white/50 hover:bg-white/80", dotClassName), "aria-label": `Go to slide ${idx + 1}` }, idx))) }))] }));
 }

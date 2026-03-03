@@ -26,6 +26,7 @@ interface CarouselProps {
   dotClassName?: string;
   animation?: keyof typeof slideVariants;
   captionAnimation?: keyof typeof slideVariants;
+  captionDelay?: number;
 }
 
 export default function Carousel({
@@ -43,6 +44,7 @@ export default function Carousel({
   dotClassName,
   animation = "slideLeft",
   captionAnimation = "fade",
+  captionDelay = 0.5,
 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const touchStartX = useRef(0);
@@ -106,25 +108,31 @@ export default function Carousel({
             className="w-full h-full object-cover"
             loading="lazy"
           />
-
-          <motion.div
-            className={cn(
-              "absolute bottom-6 left-6 right-6 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl",
-              captionClassName
-            )}
-            variants={slideVariants[captionAnimation] ?? slideVariants.fade}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ delay: 0.15 }}
-          >
-            <h3 className="text-2xl font-bold text-white drop-shadow-md">
-              {items[currentIndex].title}
-            </h3>
-            <p className="mt-2 text-white/90 text-lg drop-shadow-sm">
-              {items[currentIndex].description}
-            </p>
-          </motion.div>
+          <AnimatePresence>
+            <motion.div
+              key={currentIndex}
+              className={cn(
+                "absolute bottom-6 left-6 right-6 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl",
+                captionClassName
+              )}
+              variants={slideVariants[captionAnimation] ?? slideVariants.fade}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{
+                delay: captionDelay,
+                duration: 0.7,
+                ease: "easeOut",
+              }}
+            >
+              <h3 className="text-2xl font-bold text-white drop-shadow-md">
+                {items[currentIndex].title}
+              </h3>
+              <p className="mt-2 text-white/90 text-lg drop-shadow-sm">
+                {items[currentIndex].description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
       </AnimatePresence>
 
