@@ -1,7 +1,7 @@
 {
   "name": "nexlide",
   "description": "Nexlide is a modern, lightweight, and fully customizable React carousel component built with Framer Motion for smooth animations and Tailwind CSS for flexible styling.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Nexlide Team",
   "license": "MIT",
   "private": false,

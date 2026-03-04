@@ -1,6 +1,27 @@
+![Nexlide Logo](https://nexlide.netlify.app/assets/logo-full.png)
+
+[![npm version](https://img.shields.io/npm/v/nexlide?style=flat-square&logo=npm&logoColor=white&color=crimson)](https://www.npmjs.com/package/nexlide)
+[![npm downloads](https://img.shields.io/npm/dm/nexlide?style=flat-square&logo=npm&logoColor=white&color=blue)](https://www.npmjs.com/package/nexlide)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-black?style=flat-square&logo=github&logoColor=white)](https://github.com/ERPalmer/nexlide)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.x-blue?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-11.x-8855FF?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+
+
 # Nexlide
 
 A modern, lightweight, and fully customizable React carousel component built with **Framer Motion** for smooth animations and **Tailwind CSS** for flexible styling.
+
+## Features
+
+- Smooth slide transitions (fade, slide left/right/top/bottom)
+- Independent caption animations (title + description)
+- Responsive design
+- Lazy loading images
+- ARIA accessible
+- Dark mode compatible
+- No external CSS import required (uses Tailwind classes inline)
+- Others in development process
 
 ## Supports
 
@@ -12,16 +33,6 @@ A modern, lightweight, and fully customizable React carousel component built wit
 - Multiple animation variants for slides and captions
 - Fully customizable styles via className props
 - Designed for seamless integration with **Next.js** (App Router) and any React project
-
-## Features
-
-- Smooth slide transitions (fade, slide left/right/top/bottom)
-- Independent caption animations (title + description)
-- Responsive design
-- Lazy loading images
-- ARIA accessible
-- Dark mode compatible
-- No external CSS import required (uses Tailwind classes inline)
 
 ## Installation
 
