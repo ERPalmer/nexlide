@@ -85,17 +85,22 @@ export default function MyPage() {
 
 ## Available Animations
 
-Use `animation` for image slide transition and `captionAnimation` for title/description appearance.
+Use `animation` for the image slide transition and `captionAnimation` for the title + description appearance.
 
-| Value        | Image Slide Effect                     | Caption Effect                        |
-|--------------|----------------------------------------|---------------------------------------|
-| `fade`       | Smooth fade in/out                     | Smooth fade in/out                    |
-| `fadeIn`     | Fade in only (no exit fade)            | Fade in only                          |
-| `slideLeft`  | Enters from right, exits to left       | Enters from right, exits to left      |
-| `slideRight` | Enters from left, exits to right       | Enters from left, exits to right      |
-| `slideTop`   | Enters from bottom, exits to top       | Enters from bottom, exits to top      |
-| `slideBottom`| Enters from top, exits to bottom       | Enters from top, exits to bottom      |
+| Value        | Image Slide Effect                                      | Caption Effect                                          |
+|--------------|---------------------------------------------------------|---------------------------------------------------------|
+| `bounce`     | Bounces in from below with elastic easing               | Bounces in from below with playful elastic effect       |
+| `fade`       | Smooth fade in / fade out                               | Smooth fade in / fade out                               |
+| `fadeIn`     | Fade in only (no exit fade)                             | Fade in only (no exit fade)                             |
+| `flip`       | Flips in like a card turning (horizontal axis)          | Flips in like a card turning (horizontal axis)          |
+| `slideLeft`  | Enters from right, exits to left                        | Enters from right, exits to left                        |
+| `slideRight` | Enters from left, exits to right                        | Enters from left, exits to right                        |
+| `slideTop`   | Enters from bottom, exits to top                        | Enters from bottom, exits to top                        |
+| `slideBottom`| Enters from top, exits to bottom                        | Enters from top, exits to bottom                        |
+| `zoomIn`     | Zooms in from small to full size                        | Zooms in from small to full size                        |
+| `zoomOut`    | Zooms out from large to normal size                     | Zooms out from large to normal size                     |
 
+All animations use smooth easing curves and can be combined freely (e.g., slideLeft for image + bounce for caption). Adjust timing with `captionDelay` prop if needed.
 
 ## Props
 
