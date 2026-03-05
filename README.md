@@ -1,4 +1,7 @@
-![Nexlide Logo](https://nexlide.netlify.app/assets/logo-full.png)
+<p align="center">
+  <img src="https://nexlide.netlify.app/assets/logo-full.png" width="420"/>
+</p>
+
 
 [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white)](https://github.com/ERPalmer/nexlide)
 [![npm version](https://img.shields.io/npm/v/nexlide?style=flat-square&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/nexlide)
@@ -9,11 +12,13 @@
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind%20CSS-00bcff?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-EF5DA8?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
+
 # Nexlide
 
 A modern, lightweight, and fully customizable React carousel component built with **Framer Motion** for smooth animations and **Tailwind CSS** for flexible styling.
 
-## Features
+
+## ✨ Features
 
 - Smooth slide transitions (fade, slide left/right/top/bottom)
 - Independent caption animations (title + description)
@@ -24,7 +29,8 @@ A modern, lightweight, and fully customizable React carousel component built wit
 - No external CSS import required (uses Tailwind classes inline)
 - Others in development process
 
-## Supports
+
+## 🧩 Supports
 
 - Autoplay with configurable interval
 - Infinite loop
@@ -35,7 +41,8 @@ A modern, lightweight, and fully customizable React carousel component built wit
 - Fully customizable styles via className props
 - Designed for seamless integration with **Next.js** (App Router) and any React project
 
-## Installation
+
+## ⚙️ Installation
 
 ```bash
 npm install nexlide
@@ -45,7 +52,8 @@ yarn add nexlide
 pnpm add nexlide
 ```
 
-## Peer Dependencies
+
+## 📦 Peer Dependencies
 
 These dependencies are usually already present in React/Next.js projects:
 
@@ -53,7 +61,8 @@ These dependencies are usually already present in React/Next.js projects:
 - framer-motion
 - clsx, tailwind-merge, class-variance-authority
 
-## Usage (Next.js App Router)
+
+## 🚀 Usage (Next.js App Router)
 
 The component is a **Client Component** — you **must** use it inside a file that starts with `'use client';`
 
@@ -95,7 +104,8 @@ export default function MyPage() {
 }
 ```
 
-## Available Animations
+
+## 🌀 Available Animations
 
 Use `animation` for the image slide transition and `captionAnimation` for the title + description appearance.
 
@@ -114,7 +124,8 @@ Use `animation` for the image slide transition and `captionAnimation` for the ti
 
 All animations use smooth easing curves and can be combined freely (e.g., slideLeft for image + bounce for caption). Adjust timing with `captionDelay` prop if needed.
 
-## Props
+
+## 🔧 Props
 
 | Prop                | Type                                                                 | Default       | Description                                                                 |
 |---------------------|----------------------------------------------------------------------|---------------|-----------------------------------------------------------------------------|
@@ -135,7 +146,7 @@ All animations use smooth easing curves and can be combined freely (e.g., slideL
  `captionDelay`    | `number`                                                            | `0.5`        | Custom delay time in seconds                                                |
 
 
-## Development
+## 🛠️ Development
 
 ```bash
 # Clone repo
@@ -153,6 +164,7 @@ npm pack
 # Then in your test project: npm install ../nexlide/nexlide-1.0.0.tgz
 ```
 
-## License
+
+## 📄 License
 
 MIT License. See LICENSE for details.
