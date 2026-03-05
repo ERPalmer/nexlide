@@ -1,12 +1,13 @@
 ![Nexlide Logo](https://nexlide.netlify.app/assets/logo-full.png)
 
-[![npm version](https://img.shields.io/npm/v/nexlide?style=flat-square&logo=npm&logoColor=white&color=crimson)](https://www.npmjs.com/package/nexlide)
-[![npm downloads](https://img.shields.io/npm/dm/nexlide?style=flat-square&logo=npm&logoColor=white&color=blue)](https://www.npmjs.com/package/nexlide)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-black?style=flat-square&logo=github&logoColor=white)](https://github.com/ERPalmer/nexlide)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.x-blue?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-11.x-8855FF?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-
+[![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white)](https://github.com/ERPalmer/nexlide)
+[![npm version](https://img.shields.io/npm/v/nexlide?style=flat-square&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/nexlide)
+[![npm downloads](https://img.shields.io/npm/dm/nexlide?style=flat-square&logo=npm&logoColor=white&color=0baa45)](https://www.npmjs.com/package/nexlide)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-58c4dc?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind%20CSS-00bcff?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-EF5DA8?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
 # Nexlide
 

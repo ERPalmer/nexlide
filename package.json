@@ -1,7 +1,7 @@
 {
   "name": "nexlide",
   "description": "Nexlide is a modern, lightweight, and fully customizable React carousel component built with Framer Motion for smooth animations and Tailwind CSS for flexible styling.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Nexlide Team",
   "license": "MIT",
   "private": false,
@@ -36,28 +36,28 @@
     "access": "public"
   },
   "peerDependencies": {
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "framer-motion": "^11.0.0 || ^12.0.0",
-    "react": "^18.0.0 || ^19.0.0-rc",
-    "react-dom": "^18.0.0 || ^19.0.0-rc",
-    "tailwind-merge": "^2.0.0"
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.35.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.5.0"
   },
   "dependencies": {
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "framer-motion": "^11.0.0 || ^12.0.0",
-    "tailwind-merge": "^2.0.0"
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.35.0",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.0",
-    "@rollup/plugin-node-resolve": "^15.3.0",
-    "@rollup/plugin-typescript": "^12.1.0",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.1",
-    "rollup": "^4.24.0",
+    "@rollup/plugin-commonjs": "^29.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "rollup": "^4.59.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "tslib": "^2.7.0",
-    "typescript": "^5.6.3"
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3"
   }
 }

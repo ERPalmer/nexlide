@@ -91,7 +91,7 @@ export default function Carousel({
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       role="region"
-      aria-label="Image carousel"
+      aria-label="Carousel imageshowcase"
     >
       <AnimatePresence initial={false} mode="wait">
         <motion.div
@@ -104,7 +104,8 @@ export default function Carousel({
         >
           <img
             src={items[currentIndex].imageUrl}
-            alt={items[currentIndex].title || "Carousel image"}
+            alt={items[currentIndex].title || `Slide ${currentIndex + 1}`}
+            aria-label={items[currentIndex].title || `Slide ${currentIndex + 1}`}
             className="w-full h-full object-cover"
             loading="lazy"
           />
@@ -141,10 +142,10 @@ export default function Carousel({
           <button
             onClick={prev}
             className={cn(
-              "absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 text-white text-3xl hover:bg-black/70 transition-all duration-200 shadow-lg",
+              "absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 text-white text-3xl hover:bg-black/70 hover:cursor-pointer transition-all duration-200 shadow-lg",
               arrowClassName
             )}
-            aria-label="Previous"
+            aria-label="Previous slide"
           >
             ‹
           </button>
@@ -152,10 +153,10 @@ export default function Carousel({
           <button
             onClick={next}
             className={cn(
-              "absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 text-white text-3xl hover:bg-black/70 transition-all duration-200 shadow-lg",
+              "absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 text-white text-3xl hover:bg-black/70 hover:cursor-pointer transition-all duration-200 shadow-lg",
               arrowClassName
             )}
-            aria-label="Next"
+            aria-label="Next slide"
           >
             ›
           </button>
@@ -165,7 +166,7 @@ export default function Carousel({
       {showPagination && items.length > 1 && (
         <div
           className={cn(
-            "absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-3",
+            "absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex gap-3",
             paginationClassName
           )}
         >
@@ -174,7 +175,7 @@ export default function Carousel({
               key={idx}
               onClick={() => goToIndex(idx)}
               className={cn(
-                "w-3 h-3 rounded-full transition-all duration-300 shadow-md",
+                "w-3 h-3 rounded-full transition-all duration-300 shadow-md hover:cursor-pointer",
                 idx === currentIndex
                   ? "bg-white scale-125 shadow-white/50"
                   : "bg-white/50 hover:bg-white/80",
