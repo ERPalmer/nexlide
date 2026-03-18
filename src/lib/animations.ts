@@ -33,7 +33,7 @@ export const slideVariants: Record<string, Variants> = {
   },
   bounce: {
     initial: { opacity: 0, y: 40, scale: 0.9 },
-    animate: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.68, -0.55, 0.265, 1.55] } }, // bounce fuerte
+    animate: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.68, -0.55, 0.265, 1.55] } },
     exit: { opacity: 0, y: -40, scale: 0.9 },
   },
   zoomIn: {

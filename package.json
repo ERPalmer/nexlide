@@ -1,18 +1,28 @@
 {
   "name": "nexlide",
   "description": "Nexlide is a modern, lightweight, and fully customizable React carousel component built with Framer Motion for smooth animations and Tailwind CSS for flexible styling.",
-  "version": "1.0.4",
-  "author": "Nexlide Team",
+  "version": "1.1.0",
+  "author": {
+    "name": "Nexlide Team",
+    "url": "https://github.com/ERPalmer"
+  },
   "license": "MIT",
   "private": false,
   "keywords": [
     "react",
+    "react-carousel",
+    "react-component",
+    "react-slider",
+    "react-ui",
     "carousel",
+    "slider",
     "nextjs",
     "tailwindcss",
     "framer-motion",
     "image-carousel",
-    "react-component"
+    "ui-component",
+    "animation",
+    "nexlide"
   ],
   "homepage": "https://nexlide.netlify.app/",
   "repository": {
@@ -25,9 +35,15 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": false,
   "scripts": {
     "build": "rollup -c rollup.config.mjs",
     "prepublishOnly": "npm run build"
@@ -36,17 +52,13 @@
     "access": "public"
   },
   "peerDependencies": {
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.35.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "tailwind-merge": "^3.5.0"
+    "react": ">=18",
+    "react-dom": ">=18",
+    "framer-motion": ">=10"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.35.0",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
