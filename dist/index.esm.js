@@ -3207,7 +3207,7 @@ function cn(...inputs) {
     return twMerge(clsx(inputs));
 }
 
-const slideVariants = {
+const animationVariants = {
     fade: {
         initial: { opacity: 0 },
         animate: { opacity: 1, transition: { duration: 0.6, ease: "easeInOut" } },
@@ -3262,7 +3262,7 @@ const slideVariants = {
 
 function Carousel(props) {
     var _a, _b;
-    const { items, autoPlay = false, autoPlayInterval = 3000, autoPlayDirection = "forward", infiniteLoop = true, pauseOnHover = true, pauseOnFocus = true, pauseOnDrag = true, showPagination = true, showArrows = true, animation, rtl = false, className, slideClassName, arrowClassName, paginationClassName, dotClassName, captionClassName, captionAnimation = "fade", captionDelay = 0.5, captionDuration = 0.8, } = props;
+    const { items, autoPlay = false, autoPlayInterval = 3000, autoPlayDirection = "forward", infiniteLoop = true, rtl = false, pauseOnHover = true, pauseOnFocus = true, pauseOnDrag = true, showPagination = true, showArrows = true, animation, captionAnimation = "fade", captionDelay = 0.5, captionDuration = 0.8, className, slideClassName, arrowClassName, paginationClassName, dotClassName, captionClassName, } = props;
     const [currentIndex, setCurrentIndex] = React.useState(0);
     const [isPaused, setIsPaused] = React.useState(false);
     const [isFocused, setIsFocused] = React.useState(false);
@@ -3410,13 +3410,13 @@ function Carousel(props) {
             rtl ? next() : prev();
         }
     };
-    return (jsxs("div", Object.assign({ ref: scope, dir: rtl ? "rtl" : "ltr", className: cn("relative overflow-hidden w-full max-w-4xl mx-auto aspect-[4/3] rounded-xl shadow-2xl bg-gray-900 outline-none focus:ring-2 focus:ring-white/50", className), tabIndex: 0, onKeyDown: handleKeyDown }, (effectivePauseOnHover && {
+    return (jsxs("div", Object.assign({ ref: scope, "data-nexlide": "true", "data-nexlide-version": "1.1.1", dir: rtl ? "rtl" : "ltr", className: cn("nexlide-carousel relative overflow-hidden w-full max-w-4xl mx-auto aspect-[4/3] rounded-xl shadow-2xl bg-gray-900 outline-none focus:ring-2 focus:ring-white/50", className), tabIndex: 0, onKeyDown: handleKeyDown }, (effectivePauseOnHover && {
         onMouseEnter: handleMouseEnter,
         onMouseLeave: handleMouseLeave,
     }), (effectivePauseOnFocus && {
         onFocus: handleFocus,
         onBlur: handleBlur,
-    }), { role: "region", "aria-label": "Carousel showcase", "aria-roledescription": "carousel", "aria-live": autoPlay ? "off" : "polite", children: [jsx(AnimatePresence, { initial: false, mode: "wait", children: jsxs(motion.div, { drag: "x", dragConstraints: { left: 0, right: 0 }, dragElastic: 0.25, onDragStart: effectivePauseOnDrag ? handleDragStart : undefined, onDragEnd: handleDragEnd, style: { x }, className: cn("absolute inset-0", slideClassName), variants: (_a = slideVariants[selectedAnimation]) !== null && _a !== void 0 ? _a : slideVariants.slideLeft, initial: "initial", animate: "animate", exit: "exit", children: [jsx("img", { src: currentItem.imageUrl, alt: currentItem.title || `Slide ${currentIndex + 1}`, className: "w-full h-full object-cover pointer-events-none select-none", loading: currentIndex === 0 ? "eager" : "lazy", decoding: "async", draggable: false }), hasCaption && (jsx(AnimatePresence, { children: jsxs(motion.div, { className: cn("absolute bottom-6 left-6 right-6 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl", captionClassName), variants: (_b = slideVariants[selectedCaptionAnimation]) !== null && _b !== void 0 ? _b : slideVariants.fade, initial: "initial", animate: "animate", exit: "exit", transition: {
+    }), { role: "region", "aria-label": "Carousel showcase", "aria-roledescription": "carousel", "aria-live": autoPlay ? "off" : "polite", children: [jsx(AnimatePresence, { initial: false, mode: "wait", children: jsxs(motion.div, { drag: "x", dragConstraints: { left: 0, right: 0 }, dragElastic: 0.25, onDragStart: effectivePauseOnDrag ? handleDragStart : undefined, onDragEnd: handleDragEnd, style: { x }, className: cn("absolute inset-0", slideClassName), variants: (_a = animationVariants[selectedAnimation]) !== null && _a !== void 0 ? _a : animationVariants.slideLeft, initial: "initial", animate: "animate", exit: "exit", children: [jsx("img", { src: currentItem.imageUrl, alt: currentItem.title || `Slide ${currentIndex + 1}`, className: "w-full h-full object-cover pointer-events-none select-none", loading: currentIndex === 0 ? "eager" : "lazy", decoding: "async", draggable: false }), hasCaption && (jsx(AnimatePresence, { children: jsxs(motion.div, { className: cn("absolute bottom-6 left-6 right-6 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl", captionClassName), variants: (_b = animationVariants[selectedCaptionAnimation]) !== null && _b !== void 0 ? _b : animationVariants.fade, initial: "initial", animate: "animate", exit: "exit", transition: {
                                     delay: captionDelay,
                                     duration: captionDuration,
                                     ease: "easeOut",

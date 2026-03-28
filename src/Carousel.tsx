@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { cn } from "./lib/utils";
-import { slideVariants } from "./lib/animations";
+import { animationVariants } from "./lib/animationVariants";
 import {
   motion,
   AnimatePresence,
@@ -19,26 +19,31 @@ interface CarouselItem {
 
 interface CarouselProps {
   items: CarouselItem[];
+  
   autoPlay?: boolean;
   autoPlayInterval?: number;
   autoPlayDirection?: "forward" | "reverse";
   infiniteLoop?: boolean;
+  rtl?: boolean;
+  
   pauseOnHover?: boolean;
   pauseOnFocus?: boolean;
   pauseOnDrag?: boolean;
+  
   showPagination?: boolean;
   showArrows?: boolean;
-  animation?: keyof typeof slideVariants;
-  rtl?: boolean;
+  
+  animation?: keyof typeof animationVariants;
+  captionAnimation?: keyof typeof animationVariants;
+  captionDelay?: number;
+  captionDuration?: number;
+  
   className?: string;
   slideClassName?: string;
   arrowClassName?: string;
   paginationClassName?: string;
   dotClassName?: string;
   captionClassName?: string;
-  captionAnimation?: keyof typeof slideVariants;
-  captionDelay?: number;
-  captionDuration?: number;
 }
 
 export default function Carousel(
@@ -46,26 +51,31 @@ export default function Carousel(
 ): React.ReactElement | null {
   const {
     items,
+    
     autoPlay = false,
     autoPlayInterval = 3000,
     autoPlayDirection = "forward",
     infiniteLoop = true,
+    rtl = false,
+    
     pauseOnHover = true,
     pauseOnFocus = true,
     pauseOnDrag = true,
+    
     showPagination = true,
     showArrows = true,
+    
     animation,
-    rtl = false,
+    captionAnimation = "fade",
+    captionDelay = 0.5,
+    captionDuration = 0.8,
+    
     className,
     slideClassName,
     arrowClassName,
     paginationClassName,
     dotClassName,
     captionClassName,
-    captionAnimation = "fade",
-    captionDelay = 0.5,
-    captionDuration = 0.8,
   } = props;
 
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -208,7 +218,7 @@ export default function Carousel(
   const hasCaption = currentItem.title || currentItem.description;
 
   const selectedAnimation = React.useMemo(() => {
-    const nonDirectional = new Set<keyof typeof slideVariants>([
+    const nonDirectional = new Set<keyof typeof animationVariants>([
       "fade",
       "fadeIn",
       "zoomIn",
@@ -255,9 +265,11 @@ export default function Carousel(
   return (
     <div
       ref={scope}
+      data-nexlide="true"
+      data-nexlide-version="1.1.1"
       dir={rtl ? "rtl" : "ltr"}
       className={cn(
-        "relative overflow-hidden w-full max-w-4xl mx-auto aspect-[4/3] rounded-xl shadow-2xl bg-gray-900 outline-none focus:ring-2 focus:ring-white/50",
+        "nexlide-carousel relative overflow-hidden w-full max-w-4xl mx-auto aspect-[4/3] rounded-xl shadow-2xl bg-gray-900 outline-none focus:ring-2 focus:ring-white/50",
         className,
       )}
       tabIndex={0}
@@ -285,7 +297,7 @@ export default function Carousel(
           style={{ x }}
           key={currentIndex}
           className={cn("absolute inset-0", slideClassName)}
-          variants={slideVariants[selectedAnimation] ?? slideVariants.slideLeft}
+          variants={animationVariants[selectedAnimation] ?? animationVariants.slideLeft}
           initial="initial"
           animate="animate"
           exit="exit"
@@ -307,7 +319,7 @@ export default function Carousel(
                   "absolute bottom-6 left-6 right-6 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-xl",
                   captionClassName,
                 )}
-                variants={slideVariants[selectedCaptionAnimation] ?? slideVariants.fade}
+                variants={animationVariants[selectedCaptionAnimation] ?? animationVariants.fade}
                 initial="initial"
                 animate="animate"
                 exit="exit"

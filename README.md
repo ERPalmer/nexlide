@@ -15,12 +15,14 @@
 
 A modern, lightweight, and fully customizable React carousel component built with **Framer Motion** for smooth animations and **Tailwind CSS** for flexible styling.
 
+---
+
 ## ✨ Features
 
 ### Core
 - **Smooth slide transitions** with 10+ animation variants (fade, slide, zoom, bounce, flip)
 - **Independent caption animations** with customizable delay (0.5s default) and duration (0.8s default)
-- **Full RTL support** 🌐 — mirrored navigation, reversed swipe, and proper layout for Arabic, Hebrew, Persian, and other RTL languages
+- **Full RTL support** — mirrored navigation, reversed swipe, and proper layout for Arabic, Hebrew, Persian, and other RTL languages
 - **Intelligent autoplay system** with direction control (`forward` | `reverse`) and smart pause behaviors
 - **Advanced touch/swipe gestures** with Framer Motion — inertia scrolling and elastic snap-back
 - **Accessibility first** — ARIA labels, keyboard navigation, visible focus rings
@@ -30,7 +32,7 @@ A modern, lightweight, and fully customizable React carousel component built wit
 - **Zero CSS imports** — uses Tailwind classes inline
 - **Next.js App Router ready** with `'use client'` directive
 
-### 🆕 What's New in v1.1.0
+### 🆕 What's New in v1.1.0?
 
 #### Enhanced Autoplay Control
 - **`autoPlayDirection`** — Choose between `"forward"` (next slide) or `"reverse"` (previous slide) for autoplay progression
@@ -41,7 +43,7 @@ A modern, lightweight, and fully customizable React carousel component built wit
 - **Tab visibility awareness** — Autoplay automatically pauses when the page/tab is hidden and resumes when visible
 
 #### Complete RTL Support
-- **`rtl` prop** — Enables full right-to-left mode with:
+**`rtl` prop** — Enables full right-to-left mode with:
   - Reversed swipe/drag direction (swipe left → next slide)
   - Swapped navigation arrow positions and functions
   - Default animation switches to `slideRight` (if not overridden)
@@ -58,6 +60,8 @@ A modern, lightweight, and fully customizable React carousel component built wit
 - **Framer Motion drag enhancements** — Inertia-based scrolling with elastic snap-back
 - **Touch-optimized** — Removed legacy touch handlers for cleaner, more performant code
 - **Visual polish** — Improved focus outlines and pointer-events handling
+
+---
 
 ## 🧩 Supports
 
@@ -125,24 +129,26 @@ A modern, lightweight, and fully customizable React carousel component built wit
 | `dotClassName` | Individual pagination dots |
 
 ### Performance Optimizations
-- ⚡ **Lazy loading** — Non-active slides use `loading="lazy"`
-- 🖼️ **Image optimization** — `decoding="async"`, `draggable=false`
-- 🧹 **Clean architecture** — No legacy touch handlers
-- 🔄 **Smart re-renders** — Optimized with `useCallback` and `useMemo`
+- **Lazy loading** — Non-active slides use `loading="lazy"`
+- **Image optimization** — `decoding="async"`, `draggable=false`
+- **Clean architecture** — No legacy touch handlers
+- **Smart re-renders** — Optimized with `useCallback` and `useMemo`
 
 ### Accessibility
-- 🔍 **Visible focus ring** — Clear keyboard navigation indicators
-- 🏷️ **ARIA labels** — Proper roles and descriptions
-- ⌨️ **Full keyboard support** — Arrow keys, tab navigation
-- 📢 **Live regions** — `aria-live="polite"` (off when autoplay active)
-- 🎯 **Focus management** — Container receives focus, maintains context
+- **Visible focus ring** — Clear keyboard navigation indicators
+- **ARIA labels** — Proper roles and descriptions
+- **Full keyboard support** — Arrow keys, tab navigation
+- **Live regions** — `aria-live="polite"` (off when autoplay active)
+- **Focus management** — Container receives focus, maintains context
 
 ### Technical Stack
-- ⚛️ **React 18+** — Modern hooks architecture
-- 🎭 **Framer Motion** — Production-ready animations
-- 🌬️ **Tailwind CSS v4** — Utility-first styling
-- 📦 **TypeScript** — Full type definitions included
-- 🔼 **Next.js** — App Router compatible with `'use client'`
+- **React 18+** — Modern hooks architecture
+- **Framer Motion** — Production-ready animations
+- **Tailwind CSS v4** — Utility-first styling
+- **TypeScript** — Full type definitions included
+- **Next.js** — App Router compatible with `'use client'`
+
+---
 
 ## ⚙️ Installation
 
@@ -153,7 +159,6 @@ yarn add nexlide
 # or
 pnpm add nexlide
 ```
-
 
 ## 📦 Peer Dependencies
 
@@ -174,8 +179,11 @@ If you are customizing or extending the component and want to reuse this utility
 
 > ⚠️ These are already bundled within Nexlide and **do NOT need to be installed manually** unless you plan to use the same utility pattern in your own components.
 
+---
 
-## 🚀 Usage (Next.js App Router)
+## 🚀 Usage
+
+### Basic Example (Next.js App Router)
 
 The component is a **Client Component** — you **must** use it inside a file that starts with `'use client';`
 
@@ -196,13 +204,6 @@ const carouselItems = [
   {
     imageUrl: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&q=75&fm=webp",
     title: "Vibrant Night City",
-  },
-  {
-    imageUrl: "https://images.unsplash.com/photo-1757843298369-6e5503c14bfd?w=1200&q=75&fm=webp",
-    description: "Neon and motion in the city that never sleeps",
-  },
-  {
-    imageUrl: "https://images.unsplash.com/photo-1482192505345-5655af888cc4?w=1200&q=75&fm=webp",
   },
   // ...
 ];
@@ -226,8 +227,47 @@ export default function MyPage() {
 }
 ```
 
-**Note:** If you're using Pages Router or a different React setup without App Router restrictions, you can omit `'use client';`.
+### React Standard (No Next.js)
 
+If you're using Pages Router, Create React App, or any other React setup without App Router restrictions, you can omit the `'use client';` directive.
+
+```tsx
+import { Carousel } from 'nexlide'
+
+// ... your component logic (same as above)
+```
+
+### Example usage in RTL context
+
+For right-to-left languages (Arabic, Hebrew, Persian, etc.), enable the `rtl` prop to automatically adapt the carousel's behavior and layout.
+
+```tsx
+'use client';
+
+import { Carousel } from 'nexlide'
+
+const items = [ /* ... */ ];
+
+export default function RTLPage() {
+  return (
+    <div className="p-8" dir="rtl"> {/* Optional: Set dir on a parent */}
+      <Carousel
+        rtl={true}                    // Enables full RTL support
+        items={items}
+        autoPlay
+        autoPlayInterval={4000}
+        animation="slideRight"         // Recommended for RTL, but optional
+        showArrows
+        showPagination
+      />
+    </div>
+  );
+}
+```
+
+**Note:** If you are using a standard React setup without App Router restrictions, you can omit `'use client';`.
+
+---
 
 ## 🌀 Available Animations
 
@@ -248,6 +288,7 @@ Use `animation` for the image slide transition and `captionAnimation` for the ti
 
 All animations use smooth easing curves and can be combined freely (e.g., slideLeft for image + bounce for caption). Adjust timing with `captionDelay` prop if needed.
 
+---
 
 ## 🔧 Props
 
@@ -255,23 +296,23 @@ All animations use smooth easing curves and can be combined freely (e.g., slideL
 |-------------------|-----------|-------------|-----------------------------------------------------------------------------|
 | `items` | `CarouselItem[]` | — **(required)** | Array of carousel items. Each item must include `imageUrl`, while `title` and `description` are optional. |
 | `autoPlay`        | `boolean` | `false`     | Whether the carousel should automatically advance to the next slide.       |
-| `autoPlayInterval`| `number`  | `3000`      | Interval in milliseconds between automatic slides (only used when `autoPlay` is `true`). |
-| `autoPlayDirection`   | `"forward" \| "reverse"`          | `"forward"`   | Direction of autoplay: `"forward"` (normal) or `"reverse"` (backward).      |
+| `autoPlayInterval` | `number`  | `3000`      | Interval in milliseconds between automatic slides (only used when `autoPlay` is `true`). |
+| `autoPlayDirection🆕` | `"forward" \| "reverse"`          | `"forward"`   | Direction of autoplay: `"forward"` (normal) or `"reverse"` (backward).      |
 | `infiniteLoop`    | `boolean` | `true`      | Enable infinite looping (goes back to first slide after last).              |
 | `pauseOnHover` 🆕 | `boolean` | `true`      | Pause autoplay when the user hovers over the carousel.                      |
 | `pauseOnFocus` 🆕 | `boolean` | `true`      | Pause autoplay when the carousel receives focus (improves accessibility).   |
 | `pauseOnDrag` 🆕 | `boolean` | `true`      | Pause autoplay while the user is actively dragging/swiping the carousel.   |
 | `showPagination`  | `boolean` | `true`      | Show/hide pagination dots. By default at the bottom.                                    |
 | `showArrows`      | `boolean` | `true`      | Show/hide navigation arrows on the sides.                                   |
-| `animation`       | `AnimationType` | Animation type for slide transitions. |
+| `animation`       | `AnimationType` | `"slideLeft"` | Animation type for slide transitions. |
 | `rtl` 🆕 | `boolean`                         | `false`       | Enable right-to-left (RTL) mode. Reverses swipe direction, arrow positions, autoplay direction (if not overridden), and default animation. Ideal for Arabic, Hebrew, etc. |
-| `className`       | `string`  | —           | Additional Tailwind classes for the main carousel container.                |
+| `className`        | `string`  | —           | Additional Tailwind classes for the main carousel container.                |
 | `slideClassName`  | `string`  | —           | Additional classes for each slide wrapper.                                  |
-| `captionClassName`| `string`  | —           | Additional classes for the caption overlay container.                       |
+| `captionClassName` | `string`  | —           | Additional classes for the caption overlay container.                       |
 | `arrowClassName`  | `string`  | —           | Additional classes for navigation arrows.                                   |
 | `paginationClassName` | `string` | —        | Additional classes for the pagination dots container.                       |
 | `dotClassName`    | `string`  | —           | Additional classes for individual pagination dots.                          |
-| `captionAnimation`| `AnimationType` | Animation type for the caption appearance.                                  |
+| `captionAnimation`| `AnimationType` | `"fade"`     | Animation type for the caption appearance.                                  |
 | `captionDelay`    | `number`  | `0.5`       | Delay in seconds before the caption animation starts (after slide appears). |
 | `captionDuration` 🆕 | `number`  | `0.8`       | Duration in seconds of the caption animation itself.                        |                                 |
 
@@ -304,19 +345,7 @@ When `rtl={true}`, the carousel automatically adapts for right-to-left languages
 
 - **Layout & direction**: `dir="rtl"` is applied to the root container, ensuring correct text flow, gradient direction, positioning, and CSS mirroring
 
-**Example usage in RTL context**:
-```tsx
-<Carousel
-  rtl={true}
-  items={items}
-  autoPlay
-  autoPlayInterval={4000}
-  animation="slideRight"  // recommended, but optional
-  showArrows
-  showPagination
-/>
-```
-
+---
 
 ## 🛠️ Development
 
@@ -336,6 +365,7 @@ npm pack
 # Then in your test project: npm install ../nexlide/nexlide-1.0.0.tgz
 ```
 
+---
 
 ## 📄 License
 

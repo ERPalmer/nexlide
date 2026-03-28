@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2026-03-28
+
+### Added
+- **Wappalyzer Detection Support**: Added `data-nexlide="true"` and `data-nexlide-version` attributes to the root container of the `Carousel` component. Also added the semantic class `nexlide-carousel` for better and more reliable detection by Wappalyzer and other technology scanners.
+
+### Changed
+- **Props Reordering**: Reordered the props in the `Carousel` component for better readability and logical grouping (core props first, then autoplay, interaction, UI controls, and styling props).
+- **Documentation**: Updated and improved the `README.md` with clearer explanations, better prop descriptions, usage examples, and improved structure for easier understanding.
+
+### Fixed
+- No fixes in this release.
+
+### Security
+- No security-related changes in this release.
+
 ## [1.1.0] - 2025-03-18
 
 ### Added
